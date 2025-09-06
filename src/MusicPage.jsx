@@ -113,7 +113,7 @@ export default function MusicPage() {
   );
   const [filter, setFilter] = useState("");
   const [sortBy, setSortBy] = useState("title");
-  const [groupBy, setGroupBy] = useState("none"); // NEW
+  const [groupBy, setGroupBy] = useState("none");
   const [shuffle, setShuffle] = useState(false);
   const [repeat, setRepeat] = useState(0); // 0:none, 1:all, 2:one
 
@@ -169,6 +169,7 @@ export default function MusicPage() {
     setIsPlaying(true);
   };
 
+  // ✅ Fixed autoplay continuous playback
   const handleSongEnd = () => {
     if (repeat === 2) {
       audioRef.current.currentTime = 0;
@@ -176,7 +177,13 @@ export default function MusicPage() {
     } else if (repeat === 1) {
       playNext();
     } else {
-      setIsPlaying(false);
+      const index = songs.findIndex((s) => s.title === currentSong.title);
+      if (index < songs.length - 1) {
+        setCurrentSong(songs[index + 1]);
+        setIsPlaying(true);
+      } else {
+        setIsPlaying(false);
+      }
     }
   };
 
@@ -202,7 +209,6 @@ export default function MusicPage() {
       setPlaylist([...playlist, song]);
   };
 
-  // ✅ Filter + Sort
   const filteredSongs = songs
     .filter(
       (s) =>
@@ -212,7 +218,6 @@ export default function MusicPage() {
     )
     .sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
 
-  // ✅ Group By using reduce
   const groupedSongs =
     groupBy === "none"
       ? { All: filteredSongs }
@@ -241,7 +246,6 @@ export default function MusicPage() {
 
       {/* 🔍 Top Controls */}
       <div className="p-3 flex flex-row justify-between items-center bg-black/40 backdrop-blur-md border-b border-gray-800 shadow-lg sticky top-0 z-10 gap-2">
-        {/* Search */}
         <div className="relative w-2/3 sm:w-1/3 md:w-1/2">
           <input
             type="text"
@@ -254,8 +258,6 @@ export default function MusicPage() {
             🔍
           </span>
         </div>
-
-        {/* Sort + Group */}
         <div className="flex gap-2">
           <select
             value={sortBy}
@@ -266,7 +268,6 @@ export default function MusicPage() {
             <option value="artist">Sort by Artist</option>
             <option value="album">Sort by Album</option>
           </select>
-
           <select
             value={groupBy}
             onChange={(e) => setGroupBy(e.target.value)}
@@ -280,7 +281,7 @@ export default function MusicPage() {
         </div>
       </div>
 
-      {/* 🎵 Songs Grid with Grouping */}
+      {/* 🎵 Songs Grid */}
       <div className="flex-1 overflow-y-auto custom-scrollbar">
         {Object.entries(groupedSongs).map(([group, songs]) => (
           <div key={group} className="p-4">
@@ -308,7 +309,6 @@ export default function MusicPage() {
 
       {/* 🎶 Player Bar */}
       <footer className="bg-black/80 backdrop-blur-lg shadow-lg px-3 py-2 border-t border-gray-800 flex flex-col sm:flex-row sm:items-center sm:justify-between sticky bottom-0 gap-2">
-        {/* Left - Song Info */}
         <div className="flex items-center gap-2 min-w-0 flex-1">
           <img
             src={currentSong.cover}
@@ -335,7 +335,6 @@ export default function MusicPage() {
           </button>
         </div>
 
-        {/* Center - Controls */}
         <div className="flex flex-col items-center flex-1 max-w-md">
           <div className="flex items-center gap-4 mb-1">
             <button
@@ -396,7 +395,6 @@ export default function MusicPage() {
           </div>
         </div>
 
-        {/* Right - Volume */}
         <div className="hidden sm:flex items-center gap-2 sm:w-36 lg:w-40 justify-end flex-1">
           <Volume2 className="w-5 h-5" />
           <input
@@ -411,7 +409,6 @@ export default function MusicPage() {
             }}
             className="w-24 lg:w-28 accent-purple-500 h-2 rounded-lg cursor-pointer"
           />
-          <button className="text-gray-400 hover:text-purple-400">📄</button>
         </div>
       </footer>
     </div>
