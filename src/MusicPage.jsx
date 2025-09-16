@@ -13,6 +13,21 @@ import song7 from "./assets/song7.mp3";
 import song8 from "./assets/song8.mp3";
 import song9 from "./assets/song9.mp3";
 import song10 from "./assets/song10.mp3";
+import song11 from "./assets/song11.mp3";
+import song12 from "./assets/song12.mp3";
+import song13 from "./assets/song13.mp3";
+import song14 from "./assets/song14.mp3";
+import song15 from "./assets/song15.mp3";
+import song16 from "./assets/song16.mp3";
+import song17 from "./assets/song17.mp3";
+import song18 from "./assets/song18.mp3";
+import song19 from "./assets/song19.mp3";
+import song20 from "./assets/song20.mp3";
+import song21 from "./assets/song21.mp3";
+import song22 from "./assets/song22.mp3";
+import song23 from "./assets/song23.mp3";
+import song24 from "./assets/song24.mp3";
+import song25 from "./assets/song25.mp3";
 
 // 🎵 Local cover imports
 import cover1 from "./assets/121.jpg";
@@ -25,6 +40,19 @@ import cover7 from "./assets/127.jpg";
 import cover8 from "./assets/128.webp";
 import cover9 from "./assets/129.jpg";
 import cover10 from "./assets/130.jpg";
+import cover11 from "./assets/131.jpg";
+import cover12 from "./assets/132.jpg";
+import cover13 from "./assets/133.jpg";
+import cover14 from "./assets/134.jpg";
+import cover15 from "./assets/135.jpg";
+import cover16 from "./assets/136.jpg";
+import cover17 from "./assets/137.jpg";
+import cover18 from "./assets/138.jpg";
+import cover19 from "./assets/139.jpg";
+import cover20 from "./assets/140.jpg";
+import cover21 from "./assets/141.webp";
+import cover22 from "./assets/142.png";
+import cover23 from "./assets/143.jpg";
 
 export default function MusicPage() {
   const songs = [
@@ -85,18 +113,116 @@ export default function MusicPage() {
       src: song8,
     },
     {
-      title: "Starboy",
+      title: "Hanuman Chalisa",
       artist: "The Weeknd ft. Daft Punk",
       album: "Starboy",
       cover: cover9,
       src: song9,
     },
     {
-      title: "Believer",
+      title: "Thunder",
       artist: "Imagine Dragons",
       album: "Evolve",
       cover: cover10,
-      src: song10,
+      src: song24,
+    },
+    {
+      title: "Arjit Singh",
+      artist: "Imagine Dragons",
+      album: "Evolve",
+      cover: cover13,
+      src: song11,
+    },
+    {
+      title: "Counting Stars",
+      artist: "OneRepublic",
+      album: "Native",
+      cover: cover22,
+      src: song12,
+    },
+    {
+      title: "Ashiqui 2.0",
+      artist: "Imagine Dragons",
+      album: "Night Visions",
+      cover: cover11,
+      src: song13,
+    },
+    {
+      title: "Paradise",
+      artist: "Coldplay",
+      album: "Mylo Xyloto",
+      cover: cover23,
+      src: song14,
+    },
+    {
+      title: "MS. Dhoni",
+      artist: "Mark Ronson ft. Bruno Mars",
+      album: "Uptown Special",
+      cover: cover14,
+      src: song15,
+    },
+    {
+      title: "Closer",
+      artist: "The Chainsmokers ft. Halsey",
+      album: "Collage",
+      cover: cover16,
+      src: song16,
+    },
+    {
+      title: "Rolling in the Deep",
+      artist: "Adele",
+      album: "21",
+      cover: cover17,
+      src: song17,
+    },
+    {
+      title: "Perfect",
+      artist: "Ed Sheeran",
+      album: "÷ (Divide)",
+      cover: cover18,
+      src: song18,
+    },
+    {
+      title: "Cheap Thrills",
+      artist: "Sia",
+      album: "This Is Acting",
+      cover: cover19,
+      src: song19,
+    },
+    {
+      title: "See You Again",
+      artist: "Wiz Khalifa ft. Charlie Puth",
+      album: "Furious 7",
+      cover: cover20,
+      src: song20,
+    },
+    {
+      title: "Peaches",
+      artist: "Justin Bieber ft. Daniel Caesar, Giveon",
+      album: "Justice",
+      cover: cover21,
+      src: song21,
+    },
+    {
+      title: "Khatu Shyam",
+      artist: "Billie Eilish",
+      album: "When We All Fall Asleep, Where Do We Go?",
+      cover: cover12,
+      src: song22,
+    },
+    {
+      title: "Shivers",
+      artist: "Ed Sheeran",
+      album: "=",
+      cover: cover22,
+      src: song23,
+    },
+    {
+      title: "Ani",
+      artist: "cool",
+      album: "=",
+      cover: cover7,
+      src: song25,
     },
   ];
 
@@ -240,7 +366,7 @@ export default function MusicPage() {
                  via-green-400 via-teal-400 via-blue-500 via-purple-500 to-pink-500
                  animate-gradient-text"
         >
-          🎶 FinacPlus Music
+          <i>🎶 Soni Music</i>
         </h1>
       </header>
 
